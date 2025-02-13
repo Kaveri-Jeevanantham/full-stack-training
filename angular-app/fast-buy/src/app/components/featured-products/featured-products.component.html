@@ -9,7 +9,7 @@
   </div>
 
   <div class="product-grid" *ngIf="!loading && !error">
-    <div class="product-card" *ngFor="let product of featuredProducts">
+    <div class="product-card" *ngFor="let product of featuredProducts" [routerLink]="['/product', product.id]">
       <div class="product-image">
         <img [src]="product.image" [alt]="product.title">
         <span class="discount-badge">
@@ -25,7 +25,7 @@
         <div class="rating">
           Rating: {{product.rating.rate}} ({{product.rating.count}} reviews)
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" (click)="$event.stopPropagation()">Add to Cart</button>
       </div>
     </div>
   </div>
