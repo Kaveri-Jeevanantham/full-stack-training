@@ -43,4 +43,6 @@
       </div>
     </div>
   </div>
+
+  <app-review-form *ngIf="!loading && !error && product" [productId]="product.id"></app-review-form>
 </div>

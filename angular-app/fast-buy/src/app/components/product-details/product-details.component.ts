@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../../services/product.service';
+import { ReviewFormComponent } from '../review-form/review-form.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReviewFormComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
@@ -18,7 +19,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loadProduct();
@@ -49,4 +51,5 @@ export class ProductDetailsComponent implements OnInit {
   getDiscountPrice(price: number): number {
     return price * 0.8;
   }
+
 }
